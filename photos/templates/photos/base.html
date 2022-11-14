@@ -1,0 +1,31 @@
+{% load static %}
+{% load photos_tags %}
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="{% static 'photos/css/styles.css' %}" />
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+	<title>{{ title }}</title>
+</head>
+<body>
+
+	<div class="wrapper">
+		{% block header %}
+			{% header_menu %}
+			<div class="title"><h1>{{ title }}</h1></div>
+		{% endblock header %}
+
+		{% block content %}
+		{% endblock content %}
+
+		{% block footer %}
+		<footer>
+			<p>Сайт разработан в учебных целях в 2022 году.</p>
+		</footer>
+		{% endblock footer %}
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+
+<html lang="ru-RU">
+	<head>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="{% static 'photos/css/form.css' %}" />
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+		<title>Добавление фотографии</title>
+	</head>
+
+<body>
+	<div class="wrapper">
+		<h1>Добавление фотографии</h1>
+
+		<div class="form">
+			<form action="{% url 'add_photo' %}" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for f in form %}
+					<div class="form-item">
+						<label for="{ f.id_for_label }">{{ f.label }}</label>
+						<br>
+						{{ f }}
+					</div>
+
+					<div>{{ f.errors }}</div>
+				{% endfor %}
+
+				<button type="submit">Добавить</button>
+			</form>
+		</div>
+	</div>
+</body>

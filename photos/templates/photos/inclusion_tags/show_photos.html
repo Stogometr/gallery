@@ -1,0 +1,38 @@
+{% load photos_tags %}
+
+{% if photos|length == 0 %}
+	<p>Фотографии не найдены</p>
+{% else %}
+	{% for p in photos %}
+		<div class="photo-container">
+			{% if p.title %}
+				<h2>{{ p.title }}</h2>
+			{% else %}
+				<h2>***</h2>
+			{% endif %}
+			<img src="{{ p.image.url }}" alt="Не удалось загрузить фотографию">
+			<div class="photo-info">
+				<p>{{ p.info }}</p>
+				<p>{{ p.year }}</p>
+			</div>
+
+			{% get_tags p as tags %}
+			<span>Теги: </span>
+			{% if tags|length == 0 %}
+				<span>Для данной фотографии теги не добавлены.</span>
+			{% else %}
+
+				{% for t in tags %}
+					{% if not forloop.last %}
+						<span><a href="{{ t.get_slug }}">{{ t.tag_name }}</a>,</span>
+					{% else %}
+						<span><a href="{{ t.get_slug }}">{{ t.tag_name }}</a>.</span>
+					{% endif %}
+				{% endfor %}
+
+			{% endif %}
+		</div>
+
+		<div class="line"></div>
+	{% endfor %}
+{% endif %}

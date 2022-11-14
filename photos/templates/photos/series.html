@@ -1,0 +1,13 @@
+{% extends 'photos/base.html' %}
+
+{% block content %}
+	<content>
+		<div class="series">
+			<ul>
+				{% for s in series %}
+					<a href='{{ s.get_slug }}'><li class="serie">{{ s.ser_name }}</li></a>
+				{% endfor %}
+			</ul>
+		</div>
+	</content>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'photos/base.html' %}
+{% load static %}
+
+{% block content %}
+	<content>
+		<div class="info">
+			<p>Здравствуйте, вы находитесь на главной странице онлайн-галереи <a href="{% url 'contacts' %}" id="contact">Ивана Гусева</a>.</p>
+			<p>Здесь публикуются авторские фотографии, некоторые из которых разделены на циклы. Также, просмотреть фотографии можно по тегам.</p>
+			<p>Данная галерея была разработана в качестве учебного проекта для изучения основ фреймворка Django в октябре-ноябре 2022 года.</p>
+		</div>
+
+		<img src='{% static "photos/images/gallery.jpg" %}'/ class="static-image" id="gallery">
+	</content>
+{% endblock content %}

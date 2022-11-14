@@ -1,0 +1,12 @@
+{% extends 'photos/base.html' %}
+{% load photos_tags %}
+
+{% block content %}
+	<content>
+		<div class="line"></div>
+		{% show_photos %}
+		
+		{% pagination %}
+	</content>
+
+{% endblock content %}
